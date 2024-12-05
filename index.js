@@ -6,6 +6,9 @@ const cors = require('cors');
 const crypto = require('crypto');
 const { machineIdSync } = require('node-machine-id');
 const jwt = require('jsonwebtoken');
+const port = process.env.port || 8080
+const dotenv = require('dotenv')
+dotenv.config()
 
 const app = express();
 const secretKey = "ThisIsMyProject";
@@ -207,7 +210,7 @@ const privateKeyserver = fs.readFileSync('private.key', 'utf8');
 const certificate = fs.readFileSync('mydomain.crt', 'utf8');
 const credentials = { key: privateKeyserver, cert: certificate };
 
-https.createServer(credentials, app).listen(8080, () => {
+https.createServer(credentials, app).listen(8080, '0.0.0.0', () => {
     console.log('HTTPS server running on port 8080');
 });
 
