@@ -6,7 +6,7 @@ const cors = require('cors');
 const crypto = require('crypto');
 const { machineIdSync } = require('node-machine-id');
 const jwt = require('jsonwebtoken');
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 3001
 const dotenv = require('dotenv')
 dotenv.config()
 
