@@ -210,7 +210,7 @@ const privateKeyserver = fs.readFileSync('private.key', 'utf8');
 const certificate = fs.readFileSync('mydomain.crt', 'utf8');
 const credentials = { key: privateKeyserver, cert: certificate };
 
-https.createServer(credentials, app).listen(port, 'localhost', () => {
+https.createServer(credentials, app).listen(8080, () => {
     console.log('HTTPS server running on port 8080');
 });
 
