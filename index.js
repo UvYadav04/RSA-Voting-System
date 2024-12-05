@@ -210,13 +210,13 @@ const privateKeyserver = fs.readFileSync('private.key', 'utf8');
 const certificate = fs.readFileSync('mydomain.crt', 'utf8');
 const credentials = { key: privateKeyserver, cert: certificate };
 
-// https.createServer(credentials, app).listen(port, () => {
-//     console.log('HTTPS server running on port 8080');
-// });
+https.createServer(credentials, app).listen(port, 'localhost', () => {
+    console.log('HTTPS server running on port 8080');
+});
 
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-})
+// app.listen(port, () => {
+//     console.log(`Server running on port ${port}`);
+// })
 
 // Catch-all for React Routes
 app.get('*', (req, res) => {
